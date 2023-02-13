@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/Style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-bar">
+            <nav>
+                <h2 class="logo">NailPolish</h2>
+                <ul>
+                    <li> <a href="index.html">home</a></li>
+                    <li><a href="login.html">log in</a></li>
+                    <li><a href="sign-up.html">sign up</a></li>
+                    <li><a href="my-orders.html">my orders</a></li>
+                    <li> <a href="/views/salon-nearby.html">salons nearby</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="wrapper">
+            <h1>My orders</h1>
+            <div id="orders"></div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div>
+            <h2 class="footer__headline">about us:</h2>
+            <ul class="footer__list">
+                <li>We are the best site that exists <br> today for finding nail salons</li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="footer__headline">Follow Us</h2>
+            <ul class="footer__list">
+                <li>You can find us on Instagram <br>and Facebook</li>
+
+            </ul>
+        </div>
+        <div>
+            <h2 class="footer__headline">rights</h2>
+            <ul class="footer__list">
+                <li>The author of the website is<br> Tali Tarrasch</li>
+
+            </ul>
+        </div>
+    </footer>
+    <script src="../static/js.js"></script>
+    
+    <script>
+        fetch(`http://localhost:3000/orders/selectByUserEmail?email=${sessionStorage.getItem('email')}`)
+        .then((response) => response.json())
+        .then((data) => {
+            data.forEach(d => {
+                const date = new Date(+d.date);
+                document.getElementById('orders').innerHTML+=`
+                <div class="order" id="${d._id}">
+                    <div>
+                        <h2 class="order__headline">${d.salonName}</h2>
+                    </div>
+                    <p>Date: ${date}</p>
+                    <div>
+                        <button class="cancel-btn" onclick="cancelOrder('${d._id}')">Cancel</button>
+                    </div>
+                </div>
+                `;
+            })
+        });
+
+        async function cancelOrder(id) {
+            const orderElem = document.getElementById(id);
+            const apiRes = await fetch(`http://localhost:3000/orders/remove/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                }).catch((error) => {
+                    console.log(error);
+                    alert("A server error occurred while trying to cancel order");
+                });
+
+                if (apiRes?.status !== 200) {
+                    console.log(apiRes);
+                    alert("A server error occurred while trying to cancel order");
+                } else {
+                    window.location.reload();
+                    alert("Success! the order has been canceled successfully");
+                }
+        }
+    </script>
+</body>
+
+</html>

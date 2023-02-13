@@ -1,0 +1,7 @@
+npm modules:
+- path
+- express
+- bodyParser
+- cors
+- mongoose
+- jsonwebtoken

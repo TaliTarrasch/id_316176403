@@ -1,0 +1,292 @@
+body {
+    background-color: #fed7f8;
+}
+
+.nav-bar {
+    height: 20vh;
+    width: 100%;
+}
+
+nav {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+
+}
+
+.logo {
+    color: purple;
+    font-size: 30px;
+    font-family: Garamond, serif;
+    width: 50px;
+    height: 50px;
+
+  
+}
+
+nav ul li {
+    font-size: 20px;
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+    flex-shrink: 200px;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: purple;
+    transition: .3s;
+}
+
+button {
+    font-size: 25px;
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s;
+}
+
+.wrapper {
+    width: 65%;
+    margin: 0 auto 5%;
+}
+
+.form-area {
+    display: flex;
+    border: none;
+    padding: 1.9em;
+    padding-bottom: 0;
+}
+
+.details-area {
+    flex: 1;
+    order: 1;
+    margin-right: 5em;
+    margin-bottom: 10%;
+}
+
+.details-area input {
+    margin-bottom: 30px;
+    width: 100%;
+    background: white;
+    color: black;
+    border-radius: 5px;
+}
+
+.detail-area input,
+.details-area button {
+    padding: 1em;
+    margin-bottom: 1em;
+    margin-top: 2em;
+    background: mediumorchid;
+    color: white;
+    font-family: poppins;
+    border-radius: 5px;
+    border: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.lable {
+    font-size: 40px;
+    margin-bottom: 200px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+}
+
+.footer__headline {
+    font-weight: bold;
+    font-family: 'Helvetica';
+
+}
+
+.footer__list {
+    font-family: 'Helvetica';
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: Comic Sans MS;
+}
+
+
+.salon, .order {
+    display: flex;
+    background: white;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.salon img {
+        width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+h3 {
+    margin-left: 10%;
+}
+
+
+.salon__headline, .order__headline {
+    font-weight: bold;
+    font-family: 'Helvetica';
+
+}
+
+.salon__list {
+    font-family: 'Helvetica';
+    list-style: none;
+    /* padding: 0;
+    margin: 0; */
+    margin: 0;
+    padding: 0;
+}
+
+.salon__list .rating img {
+    width: 15px;
+    height: 15px;
+    vertical-align: bottom;
+}
+
+.right_side {
+    margin-left: 2%;
+}
+
+.active {
+    border: 2px purple solid;
+}
+
+
+
+.error {
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    margin: 10px;
+    text-align: center;
+    width: 30%;
+    margin-left: 30%;
+}
+
+.starImg {
+    width: 15px;
+    height: 15px;
+    margin: 2px;
+}
+
+.hours {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.bookHour {
+    margin: 0;
+    padding: 5px;
+    font-size: 12px;
+    background-color: purple;
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+    margin-left: 7px;
+    margin-bottom: 5px;
+    margin-top: 4px;
+}
+
+.bookbutton {
+    background-color: purple;
+    color: white;
+    border-radius: 3px;
+    padding: 7px;
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    cursor: pointer;
+}
+
+.cancel-btn, .update-btn {
+    background-color: purple;
+    color: white;
+    border-radius: 3px;
+    padding: 7px;
+    text-align: center;
+    font-size: 13px;
+    width: fit-content;
+    cursor: pointer;
+        height: fit-content;
+        align-self: center;
+}
+
+.cancel-btn {
+    background-color: red;
+}
+
+main ul li {
+    margin-top: 7px;
+}
+
+.box{
+    position: relative;
+    animation: nyAnimation;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+#search-title {
+    margin-top: 0;
+    display: none;
+}
+
+@keyframes nyAnimation {
+    0% {
+        right: 0;
+        left: 0;
+    }
+
+    25% {
+        right: 0;
+        left: 30px;
+    }
+
+    50% {
+        right: 30px;
+        left: 0px;
+    }
+
+    75% {
+        right: 0px;
+        left: 30px;
+    }
+
+    100% {
+        right: 0;
+        left: 0;
+    }
+}

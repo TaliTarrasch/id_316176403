@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/Style.css">
+</head>
+<body>
+
+<header>
+    <div class="nav-bar">
+        <nav>
+            <h2 class="logo">NailPolish</h2>
+            <ul>
+                <li><a href="/views/index.html">home</a></li>
+                <li><a href="/views/login.html">log in</a></li>
+                <li><a href="/views/sign-up.html">sign up</a></li>
+                <li><a href="/views/my-orders.html">my orders</a></li>
+                <li> <a href="/views/salon-nearby.html">salons nearby</a></li>
+            </ul>
+            <div class="box">  <img src=
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkayGtU2AOQl7AEc2Tq7yk_d4UedaQHGUjd2hxLwxjBkpQDpczVM4g1XDbcKQmT2RnLm0&usqp=CAU"
+        alt="nail polish img" style="width: 70px; height: 70px"></div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="wrapper">
+        <h1>Find your next nail salon</h1>
+        <form id="form_main" class="form-area">
+            <div class="details-area">
+
+                <label class="lable" for="location">Address</label>
+                <div class = "msg_main"> </div>
+                <input type="text" name="" id="location_main"/>
+
+                <label class="lable" for="time">Time</label>
+                <select name="time" id="time_main">
+                    <option value="7">07:00</option>
+                    <option value="8">08:00</option>
+                    <option value="9">09:00</option>
+                    <option value="10">10:00</option>
+                    <option value="11">11:00</option>
+                    <option value="12">12:00</option>
+                    <option value="13">13:00</option>
+                    <option value="14">14:00</option>
+                    <option value="15">15:00</option>
+                    <option value="16">16:00</option>
+                    <option value="17">17:00</option>
+                    <option value="18">18:00</option>
+                    <option value="19">19:00</option>
+                    <option value="20">20:00</option>
+                </select>
+
+                <br>
+                <button type="submit">Find me a salon</button>
+            </div>
+        </form>
+
+        <h1 id="search-title">Salons that matches your search:</h1>
+        <div id="search-salons"></div>
+    </div>
+
+</main>
+
+<footer>
+    <div>
+        <h2 class="footer__headline">about us:</h2>
+        <ul class="footer__list">
+            <li>We are the best site that exists <br> today for finding nail salons</li>
+        </ul>
+    </div>
+    <div>
+        <h2 class="footer__headline">Follow Us</h2>
+        <ul class="footer__list">
+            <li>You can find us on Instagram <br>and Facebook</li>
+
+        </ul>
+    </div>
+    <div>
+        <h2 class="footer__headline">rights</h2>
+        <ul class="footer__list">
+            <li>The author of the website is<br> Tali Tarrasch</li>
+
+        </ul>
+    </div>
+</footer>
+
+<script src="/static/js.js"></script>
+</body>
+</html>
+

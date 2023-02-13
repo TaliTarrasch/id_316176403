@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../static/Style.css" />
+    </head>
+
+    <body>
+        <header>
+            <div class="nav-bar">
+                <nav>
+                    <h2 class="logo">NailPolish</h2>
+                    <ul>
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="login.html">log in</a></li>
+                        <li><a href="sign-up.html">sign up</a></li>
+                        <li><a href="my-orders.html">my orders</a></li>
+                        <li>
+                            <a href="/views/salon-nearby.html">salons nearby</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="wrapper">
+                <h1>Salons nearby</h1>
+                <div id="salons"></div>
+            </div>
+        </main>
+
+        <footer>
+            <div>
+                <h2 class="footer__headline">about us:</h2>
+                <ul class="footer__list">
+                    <li>
+                        We are the best site that exists <br />
+                        today for finding nail salons
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="footer__headline">Follow Us</h2>
+                <ul class="footer__list">
+                    <li>You can find us on Instagram <br />and Facebook</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="footer__headline">rights</h2>
+                <ul class="footer__list">
+                    <li>
+                        The author of the website is<br />
+                        Tali Tarrasch
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        <script src="../static/js.js"></script>
+
+        <script>
+            fetch("http://localhost:3000/salons/select")
+                .then((response) => response.json())
+                .then((data) => {
+                    data.forEach((d) => {
+                        let rating = "";
+                        for (let i = 0; i < d.rating; i++) {
+                            rating +=
+                                '<img src="/static/star.png" alt="" class="starImg">';
+                        }
+                        let openingHours = "";
+                        for (let i = 0; i < d.openingHours.length; i++) {
+                            openingHours += `<input class="bookHour" type="radio" name="hour" value="${d.openingHours[i]}">${d.openingHours[i]}`;
+                        }
+
+                        document.getElementById("salons").innerHTML += `
+                <div class="salon" id="${d._id}" data-name="${d.salonName}">
+                    <img src="${d.logo}" alt="A saoln">
+                    <div class="right_side">
+                        <h2 class="salon__headline">${d.salonName}</h2>
+                        <ul class="salon__list">
+                            <li class="rating">Rating: ${rating}</li>
+                            <li>Address: ${d.address}</li>
+                        </ul>
+                        <p>Opening Hours:</p>
+                        <div class="hours">
+                            ${openingHours}
+                        </div>
+                        <button class="bookbutton" onclick="bookOrder('${d._id}')">BOOK NOW</button>
+                    </div>
+                </div>
+                `;
+                    });
+                });
+        </script>
+    </body>
+</html>
